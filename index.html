@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>巴士到站</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <div>
+          <p class="eyebrow">香港巴士 · 九巴 / 城巴</p>
+          <h1>最近 3 班</h1>
+          <p class="sub">預設：796P 健明邨 · 290A 彩明總站</p>
+        </div>
+        <button type="button" id="refresh-btn" class="ghost">更新</button>
+      </header>
+
+      <p id="status" class="status" aria-live="polite">載入中…</p>
+      <section id="default-bar" class="defaults" hidden></section>
+      <section id="cards" class="cards"></section>
+
+      <section class="panel">
+        <h2>即時查路線</h2>
+        <p class="hint">輸入路線號碼即可，不用選巴士公司。接著選方向、車站；會顯示該站及前 2 / 後 2 站到站時間。</p>
+
+        <form id="lookup-form" class="form">
+          <label class="span">
+            1. 路線號碼
+            <input id="route" name="route" type="text" placeholder="例如 796P 或 290A" autocomplete="off" />
+          </label>
+          <button type="button" id="load-dirs" class="secondary">載入方向</button>
+
+          <label class="span" id="dir-wrap" hidden>
+            2. 方向
+            <select id="dir" name="dir" disabled>
+              <option value="">先載入方向</option>
+            </select>
+          </label>
+
+          <label class="span" id="stop-wrap" hidden>
+            3. 車站
+            <select id="stop" name="stop" disabled>
+              <option value="">先選方向</option>
+            </select>
+          </label>
+        </form>
+        <p id="lookup-msg" class="hint"></p>
+        <section id="lookup-results" class="lookup-results"></section>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
